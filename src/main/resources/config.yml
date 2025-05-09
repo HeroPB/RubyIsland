@@ -1,0 +1,18 @@
+mysql:
+  host: "localhost"
+  port: 3306
+  user: root
+  database: RubyIsland
+  password: "TAmebJRzA#1Rb"
+
+
+general:
+  prefix: "&e&lISOLOTTO&8: &f"
+  world-name: "Isola"
+  schematic-name: "Test"
+  island-size: 30
+
+
+messages:
+  teleport-own-island: "Sei andato sulla tua isola"
+  teleport-other-island: "Sei andato sull'isola di %player%"

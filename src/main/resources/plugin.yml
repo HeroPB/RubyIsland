@@ -1,0 +1,6 @@
+name: RubyIsland
+version: '${project.version}'
+main: me.herohd.rubyisland.RubyIsland
+commands:
+  rubyisland:
+    description: "CIAOO"

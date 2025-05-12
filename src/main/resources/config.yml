@@ -16,3 +16,5 @@ general:
 messages:
   teleport-own-island: "Sei andato sulla tua isola"
   teleport-other-island: "Sei andato sull'isola di %player%"
+  wrong-argument: "Comando non corretto"
+  island-not-found: "Questo giocatore non ha un'isola"

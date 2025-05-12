@@ -30,7 +30,6 @@ public class IslandUtils {
 
         int x = check.getBlockX();
         int z = check.getBlockZ();
-        System.out.println(x >= minX && x <= maxX && z >= minZ && z <= maxZ);
 
         return x >= minX && x <= maxX && z >= minZ && z <= maxZ;
     }

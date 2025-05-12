@@ -1,6 +1,7 @@
 package me.herohd.rubyisland;
 
 import me.herohd.rubyisland.commands.IslandMainCommand;
+import me.herohd.rubyisland.commands.IslandVisitCommand;
 import me.herohd.rubyisland.listener.PlayerListener;
 import me.herohd.rubyisland.manager.IslandManager;
 import me.herohd.rubyisland.manager.MySQLManager;
@@ -30,6 +31,7 @@ public final class RubyIsland extends JavaPlugin {
 
         CommandManager manager = new CommandManager("rubyisland", "RubyIsland » ");
         manager.register(new IslandMainCommand());
+        manager.register(new IslandVisitCommand());
     }
 
     @Override

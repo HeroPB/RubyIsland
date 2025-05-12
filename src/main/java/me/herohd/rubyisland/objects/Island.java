@@ -45,7 +45,10 @@ public class Island {
         this.spawn = spawn;
     }
 
-    public void teleport(Player player) {player.teleport(spawn);}
+    public void teleport(Player player) {
+        player.teleport(spawn);
+        setBorder(player);
+    }
 
     public void save() {
         RubyIsland.getInstance().getMySQLManager().save(this);

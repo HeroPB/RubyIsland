@@ -131,4 +131,19 @@ public class MySQLManager {
         connect();
         return connection;
     }
+
+    public void addOrUpdatePlayer(int islandId, String playerUUID, String type) {
+        String query = "INSERT INTO players (island_id, players_uuid, type) " +
+                "VALUES (?, ?, ?) " +
+                "ON DUPLICATE KEY UPDATE type = VALUES(type)";
+
+        try (PreparedStatement stmt = getConnection().prepareStatement(query)) {
+            stmt.setInt(1, islandId);
+            stmt.setString(2, playerUUID);
+            stmt.setString(3, type.toUpperCase()); // deve essere uno tra 'ADD', 'TRUST', 'BAN'
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            Bukkit.getLogger().warning("Errore durante l'inserimento/aggiornamento del player: " + e.getMessage());
+        }
+    }
 }

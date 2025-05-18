@@ -18,3 +18,7 @@ messages:
   teleport-other-island: "Sei andato sull'isola di %player%"
   wrong-argument: "Comando non corretto"
   island-not-found: "Questo giocatore non ha un'isola"
+  you-not-have-island: "Non hai un isola, creala con il comando /is"
+  player-not-found: "Questo giocatore non esiste"
+  not-in-your-island: "Non sei sulla tua isola!"
+  new-spawnpoint: "Nuovo punto di spawn impostato!"

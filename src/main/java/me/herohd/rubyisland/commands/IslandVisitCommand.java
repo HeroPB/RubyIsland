@@ -38,7 +38,7 @@ public class IslandVisitCommand implements SubCommand
 
     @Override
     public String getPermission() {
-        return  "rubyisland.teleport";
+        return  "rubyisland.user";
     }
 
     @Override

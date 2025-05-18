@@ -7,6 +7,10 @@ public enum Messages {
     TELEPORT_OWN("messages.teleport-own-island"),
     TELEPORT_OTHER("messages.teleport-other-island"),
     ISLAND_NOT_FOUND("messages.island-not-found"),
+    PLAYER_NOT_FOUND("messages.player-not-found"),
+    NOT_HAVE_ISLAND("messages.you-not-have-island"),
+    NOT_IN_YOUR_ISLAND("messages.not-in-your-island"),
+    NEW_SPAWNPOINT("messages.new-spawnpoint"),
     WRONG_ARGUMENT("messages.wrong-argument");
 
     private final Config config = RubyIsland.getInstance().getConfigYML();

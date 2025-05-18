@@ -48,7 +48,15 @@ public class IslandManager {
     }
 
     public Island getIslandOrNull(String uuid) {
-        return islands.getOrDefault(uuid, null);
+        if(islands.containsKey(uuid)) return islands.get(uuid);
+        Island island = RubyIsland.getInstance().getMySQLManager().getIslandIdByUUID(uuid);
+        if(island == null) return null;
+        islands.put(uuid, island);
+        return island;
+    }
+
+    public void saveIsland(String uuid, Island island) {
+        islands.put(uuid, island);
     }
 
     public int getISLAND_SIZE() {

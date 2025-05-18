@@ -10,15 +10,33 @@ import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Island {
     private int id;
     private String player;
     private Location spawn;
+    private List<String> bannedPlayers;
+    private List<String> trustedPlayers;
+    private List<String> addedPlayers;
 
     public Island(int id, String player, Location spawn) {
         this.id = id;
         this.player = player;
         this.spawn = spawn;
+        this.bannedPlayers = new ArrayList<>();
+        this.trustedPlayers = new ArrayList<>();
+        this.addedPlayers = new ArrayList<>();
+    }
+
+    public Island(int id, String player, Location spawn, List<String> bp, List<String> ap, List<String> tp) {
+        this.id = id;
+        this.player = player;
+        this.spawn = spawn;
+        this.bannedPlayers = bp;
+        this.trustedPlayers = tp;
+        this.addedPlayers = ap;
     }
 
     public int getId() {

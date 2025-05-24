@@ -12,9 +12,13 @@ public enum Messages {
     NOT_IN_YOUR_ISLAND("messages.not-in-your-island"),
     NEW_SPAWNPOINT("messages.new-spawnpoint"),
     BAN_PLAYER("messages.ban-player"),
+    BANNED("messages.banned"),
     UNBAN_PLAYER("messages.unban-player"),
     ADD_PLAYER("messages.add-player"),
     TRUST_PLAYER("messages.trust-player"),
+    OPEN("messages.open"),
+    CLOSE("messages.close"),
+    ALREAD_IN_STATUS("messages.already-in-status"),
     ALTREDY_EXIST_PLAYER("messages.already-exist-player"),
     WRONG_ARGUMENT("messages.wrong-argument");
 

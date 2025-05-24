@@ -28,3 +28,6 @@ messages:
   trust-player: "Adesso &c%player% &fpuò costruire sempre!"
   already-exist: "Questo giocatore è già %type%"
   banned: "Non puoi entrare in questa isola!"
+  open: "Hai chiuso la tua isola, adesso nessuno (esclusi i giocatori a cui hai dato il permesso di costruire) potrà visitare la tua isola"
+  close:  "Hai riaperto la tua isola!"
+  already-in-status: "La tua isola è già %status%"

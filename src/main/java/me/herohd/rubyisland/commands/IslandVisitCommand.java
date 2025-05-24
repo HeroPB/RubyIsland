@@ -35,8 +35,8 @@ public class IslandVisitCommand implements SubCommand
             return;
         }
 
-        if(islandTemp.isBanned(player.getUniqueId().toString())) {
-
+        if(islandTemp.isBanned(player.getUniqueId().toString()) || !islandTemp.canJoin(player.getUniqueId().toString())) {
+            player.sendMessage(Messages.BANNED.getAsString());
             return;
         }
         islandTemp.teleport(player);

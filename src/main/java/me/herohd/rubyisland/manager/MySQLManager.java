@@ -71,6 +71,7 @@ public class MySQLManager {
             try (ResultSet islandRs = islandStmt.executeQuery()) {
                 if (islandRs.next()) {
                     int islandId = islandRs.getInt("id");
+                    boolean closed = islandRs.getBoolean("closed");
                     String ownerName = Bukkit.getOfflinePlayer(UUID.fromString(islandRs.getString("uuid"))).getName();
                     Location spawn = new Location(
                             Bukkit.getWorld(RubyIsland.getInstance().getConfigYML().getString("general.world-name")),
@@ -95,7 +96,7 @@ public class MySQLManager {
                         }
                     }
 
-                    return new Island(islandId, ownerName, spawn, playersMap);
+                    return new Island(islandId, ownerName, spawn, playersMap, closed);
                 }
             }
         } catch (SQLException e) {
@@ -140,7 +141,20 @@ public class MySQLManager {
             stmt.setFloat(4, island.getSpawn().getYaw());
             stmt.setFloat(5, island.getSpawn().getPitch());
             stmt.setInt(6, island.getId());
+            stmt.executeUpdate();
 
+        } catch (SQLException e) {
+            Bukkit.getLogger().info("Something went wrong. " + e);
+        }
+
+    }
+    public void closeIsland(Island island) {
+
+        try (PreparedStatement stmt = getConnection().prepareStatement(
+                "UPDATE islands SET closed = ? WHERE id = ?;"
+        )) {
+            stmt.setBoolean(1, island.isClosed());
+            stmt.setInt(2, island.getId());
             stmt.executeUpdate();
 
         } catch (SQLException e) {

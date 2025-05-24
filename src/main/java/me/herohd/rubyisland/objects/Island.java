@@ -20,20 +20,23 @@ public class Island {
     private int id;
     private String player;
     private Location spawn;
+    private boolean closed;
     private Map<String, String> players;
 
     public Island(int id, String player, Location spawn) {
         this.id = id;
         this.player = player;
         this.spawn = spawn;
+        this.closed = false;
         this.players = new ConcurrentHashMap<>();
     }
 
-    public Island(int id, String player, Location spawn, Map<String, String> players) {
+    public Island(int id, String player, Location spawn, Map<String, String> players, boolean closed) {
         this.id = id;
         this.player = player;
         this.spawn = spawn;
         this.players = players;
+        this.closed = closed;
     }
 
     public int getId() {
@@ -140,5 +143,18 @@ public class Island {
         String type = players.getOrDefault(uuid, null);
         if(type == null) return false;
         return type.equalsIgnoreCase("ban");
+    }
+
+    public boolean isClosed() {
+        return closed;
+    }
+
+    public boolean canJoin(String uuid) {
+        return !closed || isAdded(uuid) || isTrusted(uuid);
+    }
+
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+        RubyIsland.getInstance().getMySQLManager().closeIsland(this);
     }
 }

@@ -7,7 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import java.sql.*;
-import java.util.UUID;
+import java.util.*;
 
 public class MySQLManager {
     private final String url;
@@ -62,24 +62,46 @@ public class MySQLManager {
     }
 
     public Island getIslandIdByUUID(String playerUUID) {
-        String query = "SELECT * FROM islands WHERE uuid = ?";
+        String islandQuery = "SELECT * FROM islands WHERE uuid = ?";
+        String playersQuery = "SELECT players_uuid, type FROM players WHERE island_id = ?";
 
-        try (PreparedStatement stmt = getConnection().prepareStatement(query)) {
+        try (PreparedStatement islandStmt = getConnection().prepareStatement(islandQuery)) {
+            islandStmt.setString(1, playerUUID);
 
-            stmt.setString(1, playerUUID);
+            try (ResultSet islandRs = islandStmt.executeQuery()) {
+                if (islandRs.next()) {
+                    int islandId = islandRs.getInt("id");
+                    String ownerName = Bukkit.getOfflinePlayer(UUID.fromString(islandRs.getString("uuid"))).getName();
+                    Location spawn = new Location(
+                            Bukkit.getWorld(RubyIsland.getInstance().getConfigYML().getString("general.world-name")),
+                            islandRs.getFloat("rs"),
+                            islandRs.getFloat("spawn_y"),
+                            islandRs.getFloat("spawn_z"),
+                            islandRs.getFloat("spawn_yaw"),
+                            islandRs.getFloat("spawn_pitch")
+                    );
 
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    return new Island(
-                            rs.getInt("id"),
-                            Bukkit.getOfflinePlayer(UUID.fromString(rs.getString("uuid"))).getName(),
-                            new Location(Bukkit.getWorld(RubyIsland.getInstance().getConfigYML().getString("general.world-name")), rs.getFloat("rs"), rs.getFloat("spawn_y"), rs.getFloat("spawn_z"), rs.getFloat("spawn_yaw"), rs.getFloat("spawn_pitch")));
+                    Map<String, String> playersMap = new HashMap<>();
 
+                    try (PreparedStatement playersStmt = getConnection().prepareStatement(playersQuery)) {
+                        playersStmt.setInt(1, islandId);
+
+                        try (ResultSet playersRs = playersStmt.executeQuery()) {
+                            while (playersRs.next()) {
+                                String uuid = playersRs.getString("players_uuid");
+                                String type = playersRs.getString("type");
+                                playersMap.put(uuid, type);
+                            }
+                        }
+                    }
+
+                    return new Island(islandId, ownerName, spawn, playersMap);
                 }
             }
         } catch (SQLException e) {
             Bukkit.getLogger().warning("Errore nel recuperare l'isola per UUID: " + e.getMessage());
         }
+
         return null;
     }
 
@@ -144,6 +166,18 @@ public class MySQLManager {
             stmt.executeUpdate();
         } catch (SQLException e) {
             Bukkit.getLogger().warning("Errore durante l'inserimento/aggiornamento del player: " + e.getMessage());
+        }
+    }
+
+    public void removePlayer(int islandId, String playerUUID) {
+        String query = "DELETE FROM players WHERE island_id = ? AND players_uuid = ?";
+
+        try (PreparedStatement stmt = getConnection().prepareStatement(query)) {
+            stmt.setInt(1, islandId);
+            stmt.setString(2, playerUUID);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            Bukkit.getLogger().warning("Errore durante la rimozione del player dalla tabella: " + e.getMessage());
         }
     }
 }

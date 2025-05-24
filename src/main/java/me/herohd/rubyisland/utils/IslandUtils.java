@@ -15,10 +15,19 @@ public class IslandUtils {
         if (island == null) return false;
 
         final Location center = IslandChunkManager.getCenterFromId(island.getId());
-        center.setWorld(loc.getWorld());
+        Location centerd = new Location(loc.getWorld(), center.getX(), center.getY(), center.getZ());
         final int radius = RubyIsland.getInstance().getIslandManager().ISLAND_SIZE/2; // oppure island.getRadius() se dinamico
 
-        return isLocationInSquareRange(loc, center, radius);
+        return isLocationInSquareRange(loc, centerd, radius);
+    }
+    public static boolean isInIsland(Player player, Island island, Location loc) {
+        if (island == null) return false;
+
+        final Location center = IslandChunkManager.getCenterFromId(island.getId());
+        Location centerd = new Location(player.getWorld(), center.getX(), center.getY(), center.getZ());
+        final int radius = RubyIsland.getInstance().getIslandManager().ISLAND_SIZE/2; // oppure island.getRadius() se dinamico
+
+        return isLocationInSquareRange(loc, centerd, radius);
     }
 
     public static boolean isLocationInSquareRange(Location check, Location center, int radius) {

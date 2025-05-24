@@ -11,6 +11,11 @@ public enum Messages {
     NOT_HAVE_ISLAND("messages.you-not-have-island"),
     NOT_IN_YOUR_ISLAND("messages.not-in-your-island"),
     NEW_SPAWNPOINT("messages.new-spawnpoint"),
+    BAN_PLAYER("messages.ban-player"),
+    UNBAN_PLAYER("messages.unban-player"),
+    ADD_PLAYER("messages.add-player"),
+    TRUST_PLAYER("messages.trust-player"),
+    ALTREDY_EXIST_PLAYER("messages.already-exist-player"),
     WRONG_ARGUMENT("messages.wrong-argument");
 
     private final Config config = RubyIsland.getInstance().getConfigYML();

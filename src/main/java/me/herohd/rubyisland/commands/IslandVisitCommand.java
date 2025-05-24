@@ -1,6 +1,7 @@
 package me.herohd.rubyisland.commands;
 
 import me.herohd.rubyisland.RubyIsland;
+import me.herohd.rubyisland.objects.Island;
 import me.herohd.rubyisland.utils.Messages;
 import me.kr1s_d.commandframework.objects.SubCommand;
 import org.bukkit.Bukkit;
@@ -27,12 +28,18 @@ public class IslandVisitCommand implements SubCommand
             return;
         }
         String tpPlayer = strings[1];
-        if (Bukkit.getOfflinePlayer(tpPlayer) == null) {
+        String UUID = Bukkit.getOfflinePlayer(tpPlayer).getUniqueId().toString();
+        final Island islandTemp = RubyIsland.getInstance().getIslandManager().getIslandTemp(UUID);
+        if (islandTemp == null) {
             player.sendMessage(Messages.ISLAND_NOT_FOUND.getAsString());
             return;
         }
-        String UUID = Bukkit.getOfflinePlayer(tpPlayer).getUniqueId().toString();
-        RubyIsland.getInstance().getIslandManager().getIslandTemp(UUID).teleport(player);
+
+        if(islandTemp.isBanned(player.getUniqueId().toString())) {
+
+            return;
+        }
+        islandTemp.teleport(player);
         player.sendMessage(Messages.TELEPORT_OTHER.getAsString().replace("%player%", tpPlayer));
     }
 

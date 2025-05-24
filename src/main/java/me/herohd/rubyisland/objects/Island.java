@@ -11,32 +11,29 @@ import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Island {
     private int id;
     private String player;
     private Location spawn;
-    private List<String> bannedPlayers;
-    private List<String> trustedPlayers;
-    private List<String> addedPlayers;
+    private Map<String, String> players;
 
     public Island(int id, String player, Location spawn) {
         this.id = id;
         this.player = player;
         this.spawn = spawn;
-        this.bannedPlayers = new ArrayList<>();
-        this.trustedPlayers = new ArrayList<>();
-        this.addedPlayers = new ArrayList<>();
+        this.players = new ConcurrentHashMap<>();
     }
 
-    public Island(int id, String player, Location spawn, List<String> bp, List<String> ap, List<String> tp) {
+    public Island(int id, String player, Location spawn, Map<String, String> players) {
         this.id = id;
         this.player = player;
         this.spawn = spawn;
-        this.bannedPlayers = bp;
-        this.trustedPlayers = tp;
-        this.addedPlayers = ap;
+        this.players = players;
     }
 
     public int getId() {
@@ -66,6 +63,7 @@ public class Island {
     public void teleport(Player player) {
         player.teleport(spawn);
         setBorder(player);
+        RubyIsland.getInstance().getIslandManager().addVisitor(player.getName(), this);
     }
 
     public void save() {
@@ -81,5 +79,66 @@ public class Island {
 
         PacketPlayOutWorldBorder packet = new PacketPlayOutWorldBorder(worldBorder, PacketPlayOutWorldBorder.EnumWorldBorderAction.INITIALIZE);
         ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
+    }
+
+    public Map<String, String> getPlayers() {
+        return players;
+    }
+
+    public boolean banPlayer(String uuid) {
+        final String type = players.getOrDefault(uuid, null);
+        if(type == null || !type.equalsIgnoreCase("BAN")) {
+            players.put(uuid, "BAN");
+            RubyIsland.getInstance().getMySQLManager().addOrUpdatePlayer(id, uuid, "BAN");
+            return true;
+        }
+        return false;
+    }
+    public boolean addPlayer(String uuid) {
+        final String type = players.getOrDefault(uuid, null);
+        if(type == null || !type.equalsIgnoreCase("ADD")) {
+            players.put(uuid, "ADD");
+            RubyIsland.getInstance().getMySQLManager().addOrUpdatePlayer(id, uuid, "ADD");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean trustPlayer(String uuid) {
+        final String type = players.getOrDefault(uuid, null);
+        if(type == null || !type.equalsIgnoreCase("TRUST")) {
+            players.put(uuid, "TRUST");
+            RubyIsland.getInstance().getMySQLManager().addOrUpdatePlayer(id, uuid, "TRUST");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean unbanPlayer(String uuid) {
+        final String type = players.getOrDefault(uuid, null);
+        if(type != null && type.equalsIgnoreCase("BAN")) {
+            players.remove(uuid);
+            RubyIsland.getInstance().getMySQLManager().removePlayer(id, uuid);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isTrusted(String uuid) {
+        String type = players.getOrDefault(uuid, null);
+        if(type == null) return false;
+        return type.equalsIgnoreCase("trust");
+    }
+
+    public boolean isAdded(String uuid) {
+        String type = players.getOrDefault(uuid, null);
+        if(type == null) return false;
+        return type.equalsIgnoreCase("add");
+    }
+
+    public boolean isBanned(String uuid) {
+        String type = players.getOrDefault(uuid, null);
+        if(type == null) return false;
+        return type.equalsIgnoreCase("ban");
     }
 }

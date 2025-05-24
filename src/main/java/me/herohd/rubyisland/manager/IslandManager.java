@@ -11,11 +11,26 @@ import java.util.UUID;
 
 public class IslandManager {
     public HashMap<String, Island> islands;
+    public HashMap<String, Island> visitors;
     public int ISLAND_SIZE;
 
     public IslandManager() {
         this.islands = new HashMap<>();
+        this.visitors = new HashMap<>();
         this.ISLAND_SIZE = RubyIsland.getInstance().getConfigYML().getInt("general.island-size");
+    }
+
+    public HashMap<String, Island> getVisitors() {
+        return visitors;
+    }
+
+    public Island isVisitor(String player) {
+        return visitors.getOrDefault(player, null);
+    }
+
+
+    public void addVisitor(String player, Island island) {
+        visitors.put(player, island);
     }
 
     public Island create(Player owner) {

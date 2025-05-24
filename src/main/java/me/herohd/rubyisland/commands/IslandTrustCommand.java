@@ -14,10 +14,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class IslandBanCommand implements SubCommand {
+public class IslandTrustCommand  implements SubCommand {
     @Override
     public String getSubCommandId() {
-        return "ban";
+        return "trust";
     }
 
     @Override
@@ -35,9 +35,9 @@ public class IslandBanCommand implements SubCommand {
             return;
         }
         String uuid = op.getUniqueId().toString();
-        boolean banned = island.banPlayer(uuid);
-        if(banned) player.sendMessage(Messages.BAN_PLAYER.getAsString().replace("%player%", op.getName()));
-        else player.sendMessage(Messages.ALTREDY_EXIST_PLAYER.getAsString().replace("%type%", "bannato"));
+        boolean banned = island.trustPlayer(uuid);
+        if(banned) player.sendMessage(Messages.TRUST_PLAYER.getAsString().replace("%player%", op.getName()));
+        else player.sendMessage(Messages.ALTREDY_EXIST_PLAYER.getAsString().replace("%type%", "trustato"));
     }
 
     @Override
@@ -60,3 +60,4 @@ public class IslandBanCommand implements SubCommand {
         return false;
     }
 }
+

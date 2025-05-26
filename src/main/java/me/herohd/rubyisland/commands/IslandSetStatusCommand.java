@@ -31,8 +31,23 @@ public class IslandSetStatusCommand implements SubCommand {
         }
         switch (status.toUpperCase()) {
             case "OPEN":
-
+                if(!is.isClosed()) {
+                    player.sendMessage(Messages.ALREAD_IN_STATUS.getAsString().replace("%status%", "APERTA"));
+                    return;
+                }
+                is.setClosed(false);
+                player.sendMessage(Messages.OPEN.getAsString());
                 break;
+            case "CLOSE":
+                if(is.isClosed()) {
+                    player.sendMessage(Messages.ALREAD_IN_STATUS.getAsString().replace("%status%", "CHIUSA"));
+                    return;
+                }
+                is.setClosed(true);
+                player.sendMessage(Messages.CLOSE.getAsString());
+                break;
+            default:
+                player.sendMessage(Messages.WRONG_ARGUMENT.getAsString());
         }
     }
 

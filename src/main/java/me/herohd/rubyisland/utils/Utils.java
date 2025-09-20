@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class Utils {
@@ -41,6 +42,19 @@ public class Utils {
                 loc.getBlockY() + offsetY,  // Centro della Y
                 loc.getBlockZ() + 0.5   // Centro della Z
         );
+    }
+
+    public static boolean checkChance(double percentage) {
+        if (percentage >= 100.0) {
+            return true;
+        }
+
+        if (percentage <= 0.0) {
+            return false;
+        }
+
+        double randomValue = ThreadLocalRandom.current().nextDouble(100);
+        return randomValue < percentage;
     }
 
 

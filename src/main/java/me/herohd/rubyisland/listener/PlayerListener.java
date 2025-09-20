@@ -19,6 +19,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
+        if(e.getPlayer().hasPermission("rubyisland.admin.bypass")) return;
         final Location location = e.getBlock().getLocation();
         if (!IslandUtils.isInIslandWorld(location)) return;
         if (!IslandUtils.isInHisIsland(e.getPlayer(), location)) {
@@ -36,6 +37,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e) {
+        if(e.getPlayer().hasPermission("rubyisland.admin.bypass")) return;
         final Location location = e.getBlock().getLocation();
         if (!IslandUtils.isInIslandWorld(location)) return;
         if (!IslandUtils.isInHisIsland(e.getPlayer(), location)) {
@@ -53,6 +55,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e) {
+        if(e.getPlayer().hasPermission("rubyisland.admin.bypass")) return;
         if (e.getClickedBlock() == null) return;
         final Location location = e.getClickedBlock().getLocation();
         if (!IslandUtils.isInIslandWorld(location)) return;
@@ -71,6 +74,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onBucketEmpty(PlayerBucketEmptyEvent e) {
+        if(e.getPlayer().hasPermission("rubyisland.admin.bypass")) return;
         final Location location = e.getBlockClicked().getLocation();
         if (!IslandUtils.isInIslandWorld(location)) return;
         if (!IslandUtils.isInHisIsland(e.getPlayer(), location)) {
@@ -88,6 +92,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onBucketFill(PlayerBucketFillEvent e) {
+        if(e.getPlayer().hasPermission("rubyisland.admin.bypass")) return;
         final Location location = e.getBlockClicked().getLocation();
         if (!IslandUtils.isInIslandWorld(location)) return;
         if (!IslandUtils.isInHisIsland(e.getPlayer(), location)) {
@@ -105,6 +110,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onPlayerInteractEntity(PlayerInteractEntityEvent e) {
+        if(e.getPlayer().hasPermission("rubyisland.admin.bypass")) return;
         final Location location = e.getRightClicked().getLocation();
         if (!IslandUtils.isInIslandWorld(location)) return;
         if (!IslandUtils.isInHisIsland(e.getPlayer(), location)) {
@@ -122,6 +128,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onArmorStandManipulate(PlayerArmorStandManipulateEvent e) {
+        if(e.getPlayer().hasPermission("rubyisland.admin.bypass")) return;
         final Location location = e.getRightClicked().getLocation();
         if (!IslandUtils.isInIslandWorld(location)) return;
         if (!IslandUtils.isInHisIsland(e.getPlayer(), location)) {
@@ -136,4 +143,6 @@ public class PlayerListener implements Listener {
             e.setCancelled(true);
         }
     }
+
+
 }

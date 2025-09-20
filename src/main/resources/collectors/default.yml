@@ -1,0 +1,39 @@
+# L'item che rappresenta il collector stesso, sia nel mondo che nell'inventario.
+# Questo è il blocco che il giocatore piazza.
+block: "SPONGE;1"
+item:
+  material: "SPONGE;1"
+  #(In caso di testa)meta: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg2YWIwNTI0OTAwNzZlMzZiMzM2NjcyMWI2M2NkMDNiNzA0ZjIzZWQ3ZTMwMGM3MTU4NGJkMzg2OTBhMDk0NiJ9fX0="
+  name: "&c&lTEST"
+  lore:
+    - "&6"
+    - "§fProprietario§8: §c%owner%"
+    - "§fBlocchi contenuti§8: §c%blocks%"
+
+
+# NUOVO: Il tipo di blocco che questo collector può contenere.
+# Il giocatore dovrà cliccare sul collector con questo item per riempirlo.
+fillable-block: "SPONGE;0"
+
+# Le linee dell'hologramma che appariranno sopra il collector.
+# %amount% verrà sostituito con la quantità di blocchi contenuti.
+hologram:
+  - "&e&lCOLLECTOR DI SPUGNE"
+  - "&fContenuto: &e%amount%&f/&e%max_capacity%"
+
+# Lista di comandi che possono essere eseguiti quando il collector viene rotto.
+# La sintassi è "[peso] comando". Il peso determina la probabilità.
+# Un comando con peso 10 ha il doppio delle probabilità di essere scelto rispetto a uno con peso 5.
+command-on-break:
+  - "[10] eco give %player% 100"
+  - "[5] give %player% diamond 1"
+  - "[1] say %player% è stato super fortunato!"
+
+# I livelli del collector. La chiave è il numero del livello.
+# Il valore è "capacità_massima;blocchi_rotti_per_volta".
+level:
+  1: "64;1"
+  2: "128;2"
+  3: "256;3"
+  4: "512;4"
+  5: "1024;5"

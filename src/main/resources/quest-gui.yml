@@ -1,0 +1,24 @@
+# Titolo e dimensioni della GUI
+title: "&4&lSFIDE DELL'ISOLA"
+size: 3 # Numero di righe
+
+# Item per riempire gli spazi vuoti
+filler-item: "STAINED_GLASS_PANE;15" # Materiale;data
+
+# Bottone per l'upgrade
+quest:
+  slot: 13
+  #IL RESTO LO PRENDE DALLA CONFIG DELLA QUEST
+
+all-quest-complete:
+  slot: 13
+  material: "SKULL;3"
+  meta: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjlmOTkxZjFmNzFiM2EzMzFmY2MxMmQ2ZTY0ZGZmMmU3MzdjOTcxZDllODhlOTcwYzc4N2UwZThjZDA2NDA4NiJ9fX0="
+  name: "&4⬆ &c&lQUEST COMPLETATE &4⬆"
+  # La lore dei requisiti verrà generata dinamicamente dal codice.
+  # Queste linee verranno mostrate prima e dopo i requisiti.
+  lore:
+    - ""
+    - "&fHai completato tutte le &csfide &fritorna"
+    - "&ftra qualche &cgiorno&f..."
+    - ""

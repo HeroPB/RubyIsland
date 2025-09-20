@@ -29,7 +29,7 @@ public class IslandSpawnPointCommand implements SubCommand {
             player.sendMessage(Messages.NOT_IN_YOUR_ISLAND.getAsString());
             return;
         }
-        if(IslandUtils.isInHisIsland(player, loc)) {
+        if(!IslandUtils.isInHisIsland(player, loc)) {
             player.sendMessage(Messages.NOT_IN_YOUR_ISLAND.getAsString());
             return;
         }

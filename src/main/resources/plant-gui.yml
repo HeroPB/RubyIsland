@@ -1,0 +1,60 @@
+# Titolo e dimensioni della GUI
+title: "&4&lGestione Pianta"
+size: 3 # Numero di righe
+
+# Item per riempire gli spazi vuoti
+filler-item: "STAINED_GLASS_PANE;15" # Materiale;data
+
+# Bottone per l'upgrade
+upgrade:
+  slot: 11
+  material: "SKULL;3"
+  meta: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjlmOTkxZjFmNzFiM2EzMzFmY2MxMmQ2ZTY0ZGZmMmU3MzdjOTcxZDllODhlOTcwYzc4N2UwZThjZDA2NDA4NiJ9fX0="
+  name: "&4⬆ &c&lPOTENZIA PIANTA &4⬆"
+  # La lore dei requisiti verrà generata dinamicamente dal codice.
+  # Queste linee verranno mostrate prima e dopo i requisiti.
+  lore-header:
+    - "&7&oPotenzia la tua pianta per aumentare i guadagni."
+    - ""
+  lore-footer:
+    - ""
+    - "&8▶ &fLivello Attuale&8: &c%level%"
+    - "&8▶ &fGuadagno Attuale&8: &c%earn% %type%"
+    - ""
+    - "&a&oClicca per potenziare!"
+
+# Bottone mostrato quando la pianta è al livello massimo
+complete:
+  slot: 11
+  material: "BARRIER"
+  name: "&4⬆ &c&lLIVELLO MASSIMO &4⬆"
+  lore:
+    - "&cHai raggiunto il livello massimo per questa pianta!"
+
+# Bottone per rimuovere la pianta
+remove:
+  slot: 13
+  material: "SKULL;3"
+  meta: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmViNTg4YjIxYTZmOThhZDFmZjRlMDg1YzU1MmRjYjA1MGVmYzljYWI0MjdmNDYwNDhmMThmYzgwMzQ3NWY3In19fQ=="
+  name: "&4⋆ &c&lRIMUOVI PIANTA &4⋆"
+  lore:
+    - "&7Rimuovendo la pianta non riceverai"
+    - "&7alcuna ricompensa."
+    - ""
+    - "&c&lATTENZIONE: Azione irreversibile!"
+    - ""
+    - "&c&oClicca per rimuovere questa pianta."
+
+# Bottone per vendere la pianta (se ha un prezzo di vendita)
+sell:
+  slot: 15
+  material: "SKULL;3"
+  meta: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzdiMjBlZmQ5MmZmZGE5ZTZkN2Q4NTliOTZiYjc5MjgwZTFkZjViMzdiZDM5YTJiNWI2OTFkYTRkODU5MjVlZiJ9fX0="
+  name: "&2$&a&l VENDI PIANTA &2$&a"
+  lore:
+    - "&7Vendi questa pianta e recupera"
+    - "&7una parte del suo valore."
+    - ""
+    - "&fRiceverai: &a%amount% Soldi" # Esempio
+    - ""
+    - "&a&oClicca per vendere la pianta."

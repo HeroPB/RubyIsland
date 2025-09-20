@@ -17,7 +17,7 @@ import java.util.Map;
 public class IslandUnbanCommand implements SubCommand {
     @Override
     public String getSubCommandId() {
-        return "trust";
+        return "unban";
     }
 
     @Override

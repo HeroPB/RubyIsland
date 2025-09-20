@@ -20,6 +20,8 @@ public enum Messages {
     CLOSE("messages.close"),
     ALREAD_IN_STATUS("messages.already-in-status"),
     ALTREDY_EXIST_PLAYER("messages.already-exist-player"),
+    PLANTS_MAX_REACHED("messages.plants.max-reached"),
+    PLANTS_HARVESTED("messages.plants.harvested"),
     WRONG_ARGUMENT("messages.wrong-argument");
 
     private final Config config = RubyIsland.getInstance().getConfigYML();

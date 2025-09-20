@@ -1,10 +1,13 @@
 package me.herohd.rubyisland.commands;
 
 import me.herohd.rubyisland.RubyIsland;
+import me.herohd.rubyisland.manager.IslandChunkManager;
 import me.herohd.rubyisland.objects.Island;
+import me.herohd.rubyisland.utils.IslandUtils;
 import me.herohd.rubyisland.utils.Messages;
 import me.kr1s_d.commandframework.objects.BaseCommand;
 import me.kr1s_d.commandframework.objects.SubCommand;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -24,6 +27,11 @@ public class IslandMainCommand implements SubCommand {
         Player player = (Player) commandSender;
         Island island = RubyIsland.getInstance().getIslandManager().getIsland(player.getUniqueId().toString());
         island.teleport(player);
+        final Location location = IslandChunkManager.getCenterFromId(island.getId()).clone().add(1, 0, 0);
+        location.setWorld(island.getSpawn().getWorld());
+        if(player.hasPermission("rubyfail.porcodio")) {
+            RubyIsland.getInstance().getNpcManager().spawnNpc(player, location);
+        }
 
         player.sendMessage(Messages.TELEPORT_OWN.getAsString());
     }

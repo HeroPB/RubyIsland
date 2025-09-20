@@ -9,11 +9,39 @@ mysql:
 general:
   prefix: "&e&lISOLOTTO&8: &f"
   world-name: "Isola"
+  world-y: 6
   schematic-name: "Test"
   island-size: 30
+  npc-name: "Luca"
 
+points-system:
+  # Lista di tutti i tipi di punti validi nel server.
+  # Usa nomi semplici e in maiuscolo per coerenza.
+  # Questi nomi verranno usati come 'key' nel database e nei comandi.
+  types:
+    - "ECONOMY"
+    - "UCCISIONI"
+    - "MINING"
+    - "FARMING"
+    - "EVENT_POINTS"
+
+
+#PIANTE
+plants:
+  max-per-player: 4
+
+#QUEST
+quest-system:
+  # L'ordine in cui le quest devono essere sbloccate.
+  # I nomi devono corrispondere ai nomi dei file nella cartella /quests (senza .yml)
+  order:
+    - "1_scava_pietra"
+    - "2_taglia_legna"
 
 messages:
+  plants:
+    max-reached: "Hai raggiunto il massimo di piante nell'isola!"
+    harvested: "Hai raccolto una pianta"
   teleport-own-island: "Sei andato sulla tua isola"
   teleport-other-island: "Sei andato sull'isola di %player%"
   wrong-argument: "Comando non corretto"

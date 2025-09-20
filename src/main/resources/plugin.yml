@@ -1,6 +1,25 @@
 name: RubyIsland
 version: '${project.version}'
 main: me.herohd.rubyisland.RubyIsland
+depend:
+  - DecentHolograms
+  - Vault
+  - RubyCrops
+  - AutoSell
+  - PlaceholderAPI
 commands:
   rubyisland:
+    description: "CIAOO"
+    aliases:
+      - island
+      - is
+  rubyislandquest:
+    description: "CIAOO"
+  rubyislandplants:
+    description: "CIAOO"
+  rubyislandcollector:
+    description: "CIAOO"
+  rubyislandpoints:
+    description: "CIAOO"
+  rubyislandbooster:
     description: "CIAOO"

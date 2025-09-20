@@ -1,0 +1,38 @@
+item:
+  material: "SKULL;3"
+  meta: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg2YWIwNTI0OTAwNzZlMzZiMzM2NjcyMWI2M2NkMDNiNzA0ZjIzZWQ3ZTMwMGM3MTU4NGJkMzg2OTBhMDk0NiJ9fX0="
+  name: "&c&lTEST"
+  lore:
+    - "&6Cazzonegrone"
+    - "§fLivello upgrade§8: §c%level%"
+
+hologram:
+  - "&4⋆ &cFragola Semplice &4⋆"
+  - ""
+  - "&8▶ &fProssima Fase: &c%grow%"
+  - "&8▶ &fFase di Crescita: &c%phase%/%max%"
+
+
+phases:
+  1:
+    meta: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg2YWIwNTI0OTAwNzZlMzZiMzM2NjcyMWI2M2NkMDNiNzA0ZjIzZWQ3ZTMwMGM3MTU4NGJkMzg2OTBhMDk0NiJ9fX0="
+    message: ""
+    time: 10 #minuti
+    growth: false
+  2:
+    meta: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg2YWIwNTI0OTAwNzZlMzZiMzM2NjcyMWI2M2NkMDNiNzA0ZjIzZWQ3ZTMwMGM3MTU4NGJkMzg2OTBhMDk0NiJ9fX0="
+    message: ""
+    growth: true
+
+sell-plants: 1
+
+upgrades:
+  1:
+    cost: 0
+    sell: 100
+    sell_type: MONEY
+  2:
+    cost: 400
+    require_quest_id: "quest_id"
+    sell: 100
+    sell_type: MONEY

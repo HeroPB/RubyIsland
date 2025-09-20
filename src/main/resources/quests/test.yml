@@ -1,0 +1,34 @@
+# Nome interno della quest (deve essere unico)
+QUEST_NAME: "Il Minatore Principiante"
+
+# Tipo di quest. Deve corrispondere a un valore dell'enum che creeremo.
+QUEST_TYPE: "BLOCK_BREAK"
+
+# Dati per l'interfaccia grafica (/quests)
+GUI:
+  QUEST_DISPLAYNAME: "&e⛏ Il Minatore Principiante"
+  QUEST_LORE:
+    - "&7Completa questa quest per sbloccare"
+    - "&7la successiva e ottenere una ricompensa."
+    - ""
+    - "&fObiettivo: &aDistruggi 10 blocchi di pietra."
+    - "&fProgresso: &e%rubyisland_quest_progress%&8/&e%rubyisland_quest_require%" # Placeholder per il progresso
+  QUEST_ITEM: "STONE_PICKAXE" # Materiale dell'item nella GUI
+
+# Messaggi per il giocatore
+MESSAGE:
+  QUEST_COMPLETE: "&a&lCOMPLIMENTI! &aHai completato la quest: &e%rubyisland_quest_name%"
+  QUEST_STARTED: "&6&lNUOVA QUEST! &6Hai iniziato la quest: &e%rubyisland_quest_name%"
+  PROGRESS_UPDATE: "&b[!] &7Progresso: &e%rubyisland_quest_progress%&8/&e%rubyisland_quest_require%" # Messaggio opzionale per ogni progresso
+
+# Requisiti specifici per il tipo di quest
+# Per BLOCK_BREAK, questo può essere il tipo di blocco. Usa "ANY" per qualsiasi blocco.
+REQUIRE_TARGET: "STONE"
+# Quantità richiesta per completare la quest
+REQUIRE_AMOUNT: 10
+
+# Ricompense: lista di comandi eseguiti dalla console
+REWARD:
+  - "eco give %player% 100"
+  - "give %player% diamond 5"
+  - "msg %player% Hai ricevuto le tue ricompense!"

@@ -48,12 +48,62 @@
       <id>jitpack</id>
       <url>https://jitpack.io/</url>
     </repository>
+    <repository>
+      <id>codemc-repo</id>
+      <url>https://repo.codemc.io/repository/maven-public/</url>
+    </repository>
+    <repository>
+      <id>teamvk-repo</id>
+      <url>https://raw.githubusercontent.com/TeamVK/maven-repository/master/release/</url>
+    </repository>
   </repositories>
   <dependencies>
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot</artifactId>
       <version>1.12.2-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.decentsoftware-eu</groupId>
+      <artifactId>decentholograms</artifactId>
+      <version>2.7.11</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.vk2gpz.tokenenchant</groupId>
+      <artifactId>TokenEnchantAPI</artifactId>
+      <version>18.37.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.MilkBowl</groupId>
+      <artifactId>VaultAPI</artifactId>
+      <version>1.7</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>rubyregionmanager-api</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>RubyEnchantManager</artifactId>
+      <version>4.1.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>RubyLuckyBlock</artifactId>
+      <version>4.1.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>rubycrates-api</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -69,6 +119,34 @@
       <version>4.0.0-SNAPSHOT</version>
       <scope>system</scope>
       <systemPath>C:/Users/kikib/Documents/libs/ProtocolLib.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>essenceeconomy-api</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/RubyEssenceEconomy-4.0.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>rubycrops-api</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/RubyCrops-1.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>autosell</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/AutoSell-4.0.0-LITE.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>papi-api</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/PlaceholderAPI.jar</systemPath>
     </dependency>
   </dependencies>
   <properties>

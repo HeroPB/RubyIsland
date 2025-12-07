@@ -37,20 +37,12 @@ public class NpcClickListener {
                     EnumWrappers.EntityUseAction action = packet.getEntityUseActions().read(0);
 
                     if (action == EnumWrappers.EntityUseAction.ATTACK) {
-                        Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                            if(player.hasPermission("rubyfail.porcodio")) {
-                                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "dioporcone " + player.getName());
-                            }
-                        }, 40L);
+                            Bukkit.dispatchCommand(player, "rcl open");
                     }
                     else if (action == EnumWrappers.EntityUseAction.INTERACT_AT) {
                         EnumWrappers.Hand hand = packet.getHands().read(0);
                         if (hand == EnumWrappers.Hand.MAIN_HAND) {
-                            Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                                if(player.hasPermission("rubyfail.porcodio")) {
-                                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "dioporcone " + player.getName());
-                                }
-                            }, 40L);
+                                Bukkit.dispatchCommand(player, "rcl open");
                         }
                     }
                 }

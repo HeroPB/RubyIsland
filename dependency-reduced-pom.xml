@@ -84,37 +84,6 @@
     </dependency>
     <dependency>
       <groupId>me.kr1s_d</groupId>
-      <artifactId>rubyregionmanager-api</artifactId>
-      <version>4.0.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>me.kr1s_d</groupId>
-      <artifactId>RubyEnchantManager</artifactId>
-      <version>4.1.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>me.kr1s_d</groupId>
-      <artifactId>RubyLuckyBlock</artifactId>
-      <version>4.1.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>me.kr1s_d</groupId>
-      <artifactId>rubycrates-api</artifactId>
-      <version>4.0.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>me.kr1s_d</groupId>
-      <artifactId>worldedit</artifactId>
-      <version>4.0.0-SNAPSHOT</version>
-      <scope>system</scope>
-      <systemPath>C:/Users/kikib/Documents/libs/worldedit-bukkit-6.1.9.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>me.kr1s_d</groupId>
       <artifactId>protocollib</artifactId>
       <version>4.0.0-SNAPSHOT</version>
       <scope>system</scope>
@@ -140,6 +109,41 @@
       <version>4.0.0-SNAPSHOT</version>
       <scope>system</scope>
       <systemPath>C:/Users/kikib/Documents/libs/AutoSell-4.0.0-LITE.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>wrd</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/worldedit.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>rrg</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/RubyRegionManager-4.0.1.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>renchantmng</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/RubyEnchantManager-4.1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>rlbl</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/RubyLuckyBlock-4.0.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.kr1s_d</groupId>
+      <artifactId>rcrates</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/kikib/Documents/libs/RubyCrates-4.0.0-SNAPSHOT.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>me.kr1s_d</groupId>

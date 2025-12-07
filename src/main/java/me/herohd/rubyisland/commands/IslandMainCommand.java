@@ -29,9 +29,7 @@ public class IslandMainCommand implements SubCommand {
         island.teleport(player);
         final Location location = IslandChunkManager.getCenterFromId(island.getId()).clone().add(1, 0, 0);
         location.setWorld(island.getSpawn().getWorld());
-        if(player.hasPermission("rubyfail.porcodio")) {
-            RubyIsland.getInstance().getNpcManager().spawnNpc(player, location);
-        }
+        RubyIsland.getInstance().getNpcManager().spawnNpc(player, location);
 
         player.sendMessage(Messages.TELEPORT_OWN.getAsString());
     }
